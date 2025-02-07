@@ -258,10 +258,10 @@ Skip ::= K_SKIP Expression
 Limit ::= K_LIMIT Expression
 
 //-- Call subquery
-CallSubQuery ::= K_CALL "("? ReturnBody? ")"? "{" Query "}" (K_IN_TRANSACTIONS (K_OF IntegerLiteral K_ROWS)?)? {pin=2}
+CallSubQuery ::= K_OPTIONAL? K_CALL "("? ReturnBody? ")"? "{" Query "}" (K_IN_TRANSACTIONS (K_OF IntegerLiteral K_ROWS)?)? {pin=2}
 
 //-- Call procedure
-Call ::= K_CALL ProcedureInvocation ProcedureResults?
+Call ::= K_OPTIONAL? K_CALL ProcedureInvocation ProcedureResults?
 InQueryCall ::= Call Where?
 StandaloneCall ::= Call (Where? Return)?
 ProcedureInvocation ::= ProcedureInvocationBody ProcedureArguments {
